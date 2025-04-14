@@ -1,0 +1,9 @@
+<view class="audio-recorder">
+  <view class="record-btn {{isRecording ? 'recording' : ''}}" bindtap="toggleRecording">
+    <text class="record-text">{{isRecording ? '停止录音' : '开始录音'}}</text>
+  </view>
+  <view class="audio-player" wx:if="{{audioPath}}">
+    <button class="play-btn" bindtap="playAudio">播放录音</button>
+    <button class="delete-btn" bindtap="deleteAudio">删除录音</button>
+  </view>
+</view> 

@@ -1,0 +1,212 @@
+/* 页面整体样式 */
+page {
+  background: var(--bg-color);
+}
+
+.container {
+  padding: 0;
+}
+
+/* 头部样式 */
+.header {
+  background: #fff;
+  padding: 24rpx 30rpx;
+  margin-bottom: 2rpx;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header-content {
+  flex: 1;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 12rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.delete-btn {
+  padding: 10rpx;
+}
+
+/* 内容区块通用样式 */
+.section {
+  background: #fff;
+  padding: 24rpx 30rpx;
+  margin-bottom: 2rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 20rpx;
+  padding-left: 12rpx;
+  border-left: 4rpx solid var(--primary-color);
+}
+
+/* 基本信息样式 */
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.label {
+  width: 140rpx;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.value {
+  flex: 1;
+  font-size: 26rpx;
+  color: var(--text-color);
+}
+
+/* 问答列表样式 */
+.qa-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.qa-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.qa-item:last-child {
+  border-bottom: none;
+}
+
+.qa-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20rpx;
+}
+
+.question {
+  flex: 1;
+  font-size: 26rpx;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.answer {
+  flex-shrink: 0;
+  font-size: 26rpx;
+  font-weight: 500;
+  min-width: 60rpx;
+  text-align: right;
+}
+
+.yes {
+  color: var(--success-color);
+}
+
+.no {
+  color: var(--error-color);
+}
+
+.rating-A { color: var(--success-color); }
+.rating-B { color: var(--warning-color); }
+.rating-C { color: var(--error-color); }
+
+/* 录音列表样式 */
+.audio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.audio-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+}
+
+.audio-info {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.audio-index {
+  font-size: 26rpx;
+  color: var(--text-color);
+}
+
+.audio-duration {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.audio-controls {
+  display: flex;
+  gap: 12rpx;
+}
+
+.play-btn, .delete-btn {
+  font-size: 24rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 24rpx;
+  border: none;
+  line-height: 1.5;
+}
+
+.play-btn {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.delete-btn {
+  background: #f5f5f5;
+  color: #ff4d4f;
+}
+
+/* 录音相关样式 */
+.no-audio {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 26rpx;
+  padding: 40rpx 0;
+}
+
+/* 评级样式 */
+.rating {
+  font-size: 36rpx;
+  color: var(--primary-color);
+  font-weight: bold;
+  text-align: center;
+}
+
+/* 备注样式 */
+.remarks {
+  font-size: 26rpx;
+  color: var(--text-color);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+ 

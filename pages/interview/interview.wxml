@@ -1,0 +1,89 @@
+<view class="container">
+  <!-- 基本信息区域 - 隐藏但保留功能 -->
+  <view class="info-section" style="display: none;">
+    <picker mode="date" value="{{interviewInfo.date}}" bindchange="onDateChange">
+      <view class="picker-value">{{interviewInfo.date}}</view>
+    </picker>
+    <picker mode="time" value="{{interviewInfo.time}}" bindchange="onTimeChange">
+      <view class="picker-value">{{interviewInfo.time}}</view>
+    </picker>
+    <input class="location-input" value="{{interviewInfo.location}}" bindinput="onLocationInput"/>
+  </view>
+
+  <!-- 录音组件 -->
+  <view class="info-section">
+    <view class="section-title">访谈录音</view>
+    <audio-recorder 
+      bind:recordComplete="onRecordComplete" 
+      bind:recordDelete="onRecordDelete"
+    />
+  </view>
+
+  <!-- 受访人信息 -->
+  <view class="info-section">
+    <view class="info-item">
+      <text class="info-label">受访人姓名</text>
+      <input class="input-field large" 
+             value="{{interviewInfo.interviewee}}"
+             bindinput="onIntervieweeInput"
+             placeholder=""/>
+    </view>
+    <view class="info-item">
+      <text class="info-label">受访人职务</text>
+      <input class="input-field large" 
+             value="{{interviewInfo.position}}"
+             bindinput="onPositionInput"
+             placeholder=""/>
+    </view>
+  </view>
+
+  <!-- 问题列表 -->
+  <view class="questions">
+    <view class="question" wx:for="{{questions}}" wx:key="id">
+      <view class="question-title">{{item.title}}</view>
+      <!-- ABC评级选项 -->
+      <view class="rating-options">
+        <view class="rating-option {{item.rating === 'A' ? 'selected' : ''}}" 
+              bindtap="setQuestionRating" 
+              data-id="{{item.id}}" 
+              data-rating="A">A</view>
+        <view class="rating-option {{item.rating === 'B' ? 'selected' : ''}}" 
+              bindtap="setQuestionRating" 
+              data-id="{{item.id}}" 
+              data-rating="B">B</view>
+        <view class="rating-option {{item.rating === 'C' ? 'selected' : ''}}" 
+              bindtap="setQuestionRating" 
+              data-id="{{item.id}}" 
+              data-rating="C">C</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 总体评级区域 -->
+  <view class="rating-section">
+    <view class="section-title">总体评级</view>
+    <view class="rating-options">
+      <view class="rating-option {{overallRating === 'A' ? 'selected' : ''}}" 
+            bindtap="setOverallRating" 
+            data-rating="A">A</view>
+      <view class="rating-option {{overallRating === 'B' ? 'selected' : ''}}" 
+            bindtap="setOverallRating" 
+            data-rating="B">B</view>
+      <view class="rating-option {{overallRating === 'C' ? 'selected' : ''}}" 
+            bindtap="setOverallRating" 
+            data-rating="C">C</view>
+    </view>
+  </view>
+
+  <!-- 备注区域 -->
+  <view class="remarks-section">
+    <view class="section-title">备注</view>
+    <textarea class="remarks-input" 
+              placeholder="请输入备注信息" 
+              bindinput="onRemarksInput"
+              value="{{remarks}}"></textarea>
+  </view>
+
+  <!-- 提交按钮 -->
+  <button class="submit-btn" type="primary" bindtap="submitInterview">提交访谈结果</button>
+</view> 

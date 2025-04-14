@@ -1,0 +1,184 @@
+/* 页面整体样式设置 */
+page {
+  min-height: 100vh;
+  background: var(--bg-color);
+}
+
+/* 主容器样式 */
+.container {
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 基本信息区域卡片样式 */
+.info-section {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 信息项样式 */
+.info-item {
+  margin-bottom: 24rpx;
+}
+
+/* 最后一个信息项去除底部间距 */
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 信息标签样式 */
+.info-label {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+/* 选择器和输入框统一样式 - 添加placeholder样式 */
+.picker-value, .location-input {
+  background: #f8f8f8;
+  padding: 16rpx 20rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 添加：输入框placeholder样式 */
+.location-input::placeholder {
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 问题列表容器样式 */
+.questions {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 24rpx;
+}
+
+/* 单个问题卡片样式 - 增加内边距 */
+.question {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 问题标题文本样式 */
+.question-title {
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* 是/否选项容器样式 */
+.answer-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+  width: 100%;
+}
+
+/* 单个选项样式 */
+.option {
+  text-align: center;
+  padding: 16rpx 0;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+/* 选中状态的选项样式 */
+.option.selected {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+/* 总体评级区域样式 */
+.rating-section {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 区域标题样式 */
+.section-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 20rpx;
+}
+
+/* ABC评级选项容器样式 */
+.rating-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+  width: 100%;
+}
+
+/* 评级选项样式 */
+.rating-option {
+  text-align: center;
+  padding: 16rpx 0;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+/* 选中状态的评级选项样式 */
+.rating-option.selected {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+/* 备注区域样式 */
+.remarks-section {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 备注输入框样式 */
+.remarks-input {
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 16rpx;
+  width: 100%;
+  height: 180rpx;
+  font-size: 24rpx;
+  box-sizing: border-box;
+}
+
+/* 提交按钮样式 */
+.submit-btn {
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 8rpx;
+  padding: 24rpx;
+  font-size: 28rpx;
+  width: 100%;
+  margin-top: 40rpx;
+} 

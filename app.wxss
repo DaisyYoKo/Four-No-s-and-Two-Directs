@@ -1,0 +1,108 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+/* 全局样式变量 */
+page {
+  --primary-color: #1AAD19;
+  --bg-color: #f5f5f5;
+  --text-color: #333333;
+  --text-secondary: #666666;
+  --border-color: #eeeeee;
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --error-color: #ff4d4f;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+/* 通用卡片样式 */
+.card {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 通用输入框样式 */
+.input {
+  width: 100%;
+  height: 80rpx;
+  background: #f8f8f8;
+  border-radius: 8rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+/* 通用按钮样式 */
+.btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-default {
+  background: #f5f5f5;
+  color: var(--text-color);
+}
+
+/* 通用标签样式 */
+.label {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  margin-bottom: 12rpx;
+}
+
+/* 通用图标按钮样式 */
+.icon-btn {
+  padding: 16rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 通用分割线 */
+.divider {
+  height: 1rpx;
+  background: var(--border-color);
+  margin: 24rpx 0;
+}
+
+/* 通用空状态提示 */
+.empty-tip {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 28rpx;
+  padding: 40rpx 0;
+}
+
+/* 通用标题样式 */
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+  color: var(--text-color);
+} 

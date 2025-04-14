@@ -1,0 +1,35 @@
+<view class="container">
+  <!-- 历史记录列表 -->
+  <block wx:if="{{historyList.length > 0}}">
+    <view class="history-list">
+      <view class="history-item" 
+            wx:for="{{historyList}}" 
+            wx:key="timestamp"
+            bindtap="viewDetail" 
+            bindlongpress="showDeleteModal"
+            data-index="{{index}}">
+        <view class="item-content">
+          <view class="item-header">
+            <text class="item-title">{{item.type === 'siteCheck' ? '现场检查' : '人员访谈'}}</text>
+            <text class="item-time">{{item.formattedTime}}</text>
+          </view>
+          <view class="item-info">
+            <text wx:if="{{item.type === 'siteCheck'}}">
+              检查地点：{{item.checkInfo.location}}
+            </text>
+            <text wx:else>
+              访谈对象：{{item.interviewInfo.interviewee}}
+            </text>
+            <text class="rating">评级：{{item.overallRating}}</text>
+            <!-- 显示录音标记 -->
+            <view class="audio-mark" wx:if="{{item.audioRecord}}">
+              <icon type="sound" size="14"/>
+              <text>已录音</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view wx:else class="empty-tip">暂无历史记录</view>
+</view> 

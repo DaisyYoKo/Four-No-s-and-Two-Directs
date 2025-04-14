@@ -1,0 +1,107 @@
+<view class="container">
+  <!-- 头部标题 -->
+  <view class="header">
+    <view class="header-content">
+      <view class="title">{{record.type === 'siteCheck' ? '现场检查' : '人员访谈'}}</view>
+      <view class="time">{{formattedTime}}</view>
+    </view>
+    <view class="delete-btn" bindtap="deleteRecord">
+      <icon type="cancel" size="20" color="#ff4d4f"/>
+    </view>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="section">
+    <view class="section-title">基本信息</view>
+    <view class="info-list">
+      <view class="info-item">
+        <text class="label">记录人：</text>
+        <text class="value">{{record.recorder.name}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">部门：</text>
+        <text class="value">{{record.recorder.department}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">地点：</text>
+        <text class="value">{{record.checkInfo.location || record.interviewInfo.location}}</text>
+      </view>
+      <!-- 人员访谈特有信息 -->
+      <block wx:if="{{record.type === 'interview'}}">
+        <view class="info-item">
+          <text class="label">受访人：</text>
+          <text class="value">{{record.interviewInfo.interviewee}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">职务：</text>
+          <text class="value">{{record.interviewInfo.position}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 问题列表 -->
+  <view class="section">
+    <view class="section-title">{{record.type === 'siteCheck' ? '检查内容' : '访谈内容'}}</view>
+    <view class="qa-list">
+      <!-- 现场检查问题模板 -->
+      <block wx:if="{{record.type === 'siteCheck'}}">
+        <view class="qa-item" wx:for="{{record.questions}}" wx:key="id">
+          <view class="qa-content">
+            <text class="question">{{item.title}}</text>
+            <view class="answer">
+              <text class="{{item.answer ? 'yes' : 'no'}}">{{item.answer ? '是' : '否'}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+      
+      <!-- 人员访谈问题模板 -->
+      <block wx:else>
+        <view class="qa-item" wx:for="{{record.questions}}" wx:key="id">
+          <view class="qa-content">
+            <text class="question">{{item.title}}</text>
+            <view class="answer">
+              <text class="rating-{{item.rating}}">{{item.rating}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 录音列表 -->
+  <view class="section">
+    <view class="section-title">录音记录</view>
+    <block wx:if="{{audioList && audioList.length > 0}}">
+      <view class="audio-list">
+        <view class="audio-item" wx:for="{{audioList}}" wx:key="index">
+          <view class="audio-info">
+            <text class="audio-index">录音{{index + 1}}</text>
+            <text class="audio-duration">{{item.duration}}秒</text>
+          </view>
+          <view class="audio-controls">
+            <button class="play-btn {{currentAudioIndex === index && isPlaying ? 'playing' : ''}}" 
+                    bindtap="playAudio" 
+                    data-index="{{index}}">
+              {{currentAudioIndex === index && isPlaying ? '停止' : '播放'}}
+            </button>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view wx:else class="no-audio">暂无录音文件</view>
+  </view>
+
+  <!-- 总体评级 -->
+  <view class="section">
+    <view class="section-title">总体评级</view>
+    <view class="rating rating-{{record.overallRating}}">{{record.overallRating}}</view>
+  </view>
+
+  <!-- 备注 -->
+  <view class="section" wx:if="{{record.remarks}}">
+    <view class="section-title">备注</view>
+    <view class="remarks">{{record.remarks}}</view>
+  </view>
+</view> 
